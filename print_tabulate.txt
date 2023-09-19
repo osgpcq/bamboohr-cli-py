@@ -1,0 +1,29 @@
+if (args.whosout):
+#  # Documentation print_tabulate
+#  # List of Dict
+#  print_tabulate( table=table )
+#  print_tabulate( table=table, tablefmt='github' )
+#  print_tabulate( table=table, showindex=False )
+#  print_tabulate( table=table, tablefmt='simple_outline', sort=True )
+#  print_tabulate( table=table, tablefmt='simple_outline', sort=True, reverse=True )
+#  print_tabulate( table=table, tablefmt='simple_outline', sort=True, showindex=False )
+#  print_tabulate( table=table, tablefmt='simple_outline', sort=True, reverse=True, showindex=False )
+#  print_tabulate( table=table, tablefmt='github',         sort=True, sortcolumn='name' )
+#  print_tabulate( table=table, tablefmt='simple_outline', sort=True, reverse=True, sortcolumn='name' )
+#  print_tabulate( table=table, tablefmt='github',         tablefilterkeys=['type','start'] )
+#  print_tabulate( table=table, tablefmt='simple_outline', tablefilterkeys=['type','start'], sort=True, reverse=True, showindex=False )
+#  print_tabulate( table=table, tablefmt='simple_outline', tablefilterkeys=['type','start'], sort=True, reverse=True, showindex=False, stralign='center' )
+#  print_tabulate( table=table, tablefmt='github',         tablefilterkeys=['type','start'], sort=True, reverse=True, showindex=False, stralign='center', sortcolumn='name' )
+##  print_tabulate( table=table, tablefmt='github',         tablefilter=['0'])                                       # not useful, and tablefilter not working. if tables is a list of dict
+##  print_tabulate( table=table, tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'])  # not useful, and headers only if tables is a list of dict
+#  # List of Dict: BUt not ordered !!
+#  print_tabulate( table=[{'1','2','3','4','5','6'},{'1','2','3','4','5','6'}], tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'] ) # Values not ordered like headers
+#  # List of List
+#  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='github' )
+#  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='simple_outline', showindex=False )
+##  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='simple_outline', sort=True ) # !!! Sort with List of list not working?
+#  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='simple_outline', tablefilter=[3] )
+##  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'] )
+#  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='simple_outline', headers=['id', 'start', 'end'], tablefilter=[1,2,3] )
+##  print_tabulate( table=[{'1','2','3','4','5','6'}], tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'], sort=True, reverse=True )
+##  print_tabulate( table=[{'1','2','3','4','5','6'}], tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'], sort=True, reverse=True, showindex=False )
