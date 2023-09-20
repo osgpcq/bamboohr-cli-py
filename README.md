@@ -67,4 +67,5 @@ options:
 
 
 # History
+Maybe for some option a nextPageToken should be added.
 Still in quick & dirty dev phase!
