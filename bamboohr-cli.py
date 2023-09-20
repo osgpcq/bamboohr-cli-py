@@ -68,7 +68,7 @@ def print_tabulate( table, tablefmt='rounded_outline', stralign='left', showinde
   # tablefmt: 'simple', 'rounded_outline', 'simple_outline', 'github', ...
   # stralign: 'left', 'center', 'right'
   # missingval='?'
-  # showindex: True, False, "Iterable" 
+  # showindex: True, False, "Iterable"
   # headers: [array], 'firstrow', 'keys' (if dict)
   # disable_numparse=True
   if (args.verbose) or (args.debug):
