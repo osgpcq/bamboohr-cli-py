@@ -159,7 +159,7 @@ if (args.whosout):
       continue # Pass directly to the next for value
     else:
       table.append(who)
-  print_tabulate( table=table, sort=True, sortcolumn='email' )
+  print_tabulate( table=table, sort=True, sortcolumn='name' )
 
 if (args.employees):
   employees=request( resource='employees/directory', headers={ 'Authorization': 'token '+api_key } ) # Could be disabled by companies
