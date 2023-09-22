@@ -24,7 +24,9 @@ api_base_url='https://api.bamboohr.com/api/gateway.php/'
 today=date.today().isoformat()
 year=date.today().year
 #############################################################################
-def request( method='GET', resource='', params='', headers={} ):
+def request( method='GET', resource='' , auth='', headers={}, params='', data='' ):
+  # data:   POST, PUT, ...
+  # params: GET, ...
   url=api_url+resource
   headers.update({'accept': 'application/json'})
   if (args.verbose) or (args.debug):
@@ -35,9 +37,10 @@ def request( method='GET', resource='', params='', headers={} ):
   response=requests.request(
     method,
     api_url+resource,
+    auth=auth,
     headers=headers,
-    data=params,
-    auth=auth
+    params=params,
+    data=data
   )
   if (args.verbose) or (args.debug):
     print('Status code: '+str(response.status_code))
@@ -144,7 +147,7 @@ else:
 
 if (args.whosout):
   # Array of dictionary
-  whosout=request( resource='time_off/whos_out/', headers={ 'Authorization': 'token '+api_key } )
+  whosout=request( resource='time_off/whos_out/', auth=auth, headers={ 'Authorization': 'token '+api_key } )
   if (args.debug):
     print('Sortie request:')
     print(whosout)
@@ -162,13 +165,13 @@ if (args.whosout):
   print_tabulate( table=table, sort=True, sortcolumn='name' )
 
 if (args.employees):
-  employees=request( resource='employees/directory', headers={ 'Authorization': 'token '+api_key } ) # Could be disabled by companies
+  employees=request( resource='employees/directory', auth=auth, headers={ 'Authorization': 'token '+api_key } ) # Could be disabled by companies
   print_tabulate( table=employees['employees'], tablefilterkeys=['workphone', 'photoUrl', 'workPhoneExtension', 'canUploadPhoto'], sort=True, sortcolumn='displayName' )
 if (args.fields):
-  fields=request( resource='meta/fields', headers={ 'Authorization': 'token '+api_key } )
+  fields=request( resource='meta/fields', auth=auth, headers={ 'Authorization': 'token '+api_key } )
   print_tabulate( table=fields )
 if (args.users):
-  users=request( resource='meta/users', headers={ 'Authorization': 'token '+api_key } )
+  users=request( resource='meta/users', auth=auth, headers={ 'Authorization': 'token '+api_key } )
   table=[]
   for key, values in users.items(): # Dict of List of Dict
     if (args.debug):
@@ -181,13 +184,13 @@ if (args.users):
   print_tabulate( table=table, sort=True ) # sort still now great if in some row, the column is not set
 if (args.employee): # Limited access: %2C=',' %20=' '
   # The special employee ID of zero (0) means to use the employee ID associated with the API key (if any)
-  #employee=request( resource='employees/0?fields=firstName%2ClastName%2ChireDate&onlyCurrent=true', headers={ 'Authorization': 'token '+api_key } )
-  employee=request( resource='employees/'+args.employee+'?fields=firstName%2ClastName%2ChireDate&onlyCurrent=true', headers={ 'Authorization': 'token '+api_key } )
+  #employee=request( resource='employees/0?fields=firstName%2ClastName%2ChireDate&onlyCurrent=true', auth=auth, headers={ 'Authorization': 'token '+api_key } )
+  employee=request( resource='employees/'+args.employee+'?fields=firstName%2ClastName%2ChireDate&onlyCurrent=true', auth=auth, headers={ 'Authorization': 'token '+api_key } )
   print_tabulate( table=[employee], showindex=False ) # var passed in list
 if (args.timeoff):
   if (args.debug):
     print(year)
-  timeoff=request( resource='employees/'+args.timeoff+'/time_off/calculator?end='+str(year)+'-12-31', headers={ 'Authorization': 'token '+api_key } )
+  timeoff=request( resource='employees/'+args.timeoff+'/time_off/calculator?end='+str(year)+'-12-31', auth=auth, headers={ 'Authorization': 'token '+api_key } )
   print_tabulate( table=timeoff, showindex=False )
 #############################################################################
 #############################################################################
