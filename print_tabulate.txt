@@ -16,7 +16,7 @@ if (args.whosout):
 #  print_tabulate( table=table, tablefmt='github',         tablefilterkeys=['type','start'], sort=True, reverse=True, showindex=False, stralign='center', sortcolumn='name' )
 ##  print_tabulate( table=table, tablefmt='github',         tablefilter=['0'])                                       # not useful, and tablefilter not working. if tables is a list of dict
 ##  print_tabulate( table=table, tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'])  # not useful, and headers only if tables is a list of dict
-#  # List of Dict: BUt not ordered !!
+#  # List of Dict: But not ordered !!
 #  print_tabulate( table=[{'1','2','3','4','5','6'},{'1','2','3','4','5','6'}], tablefmt='simple_outline', headers=['id', 'titi', 'toto', 'tete', 'start', 'end'] ) # Values not ordered like headers
 #  # List of List
 #  print_tabulate( table=[['1','2','3','4','5','6']], tablefmt='github' )

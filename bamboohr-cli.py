@@ -107,12 +107,12 @@ def print_tabulate( table, tablefmt='rounded_outline', stralign='left', showinde
     sortkey=(lambda item: (item[sortcolumn]))
     if (args.verbose) or (args.debug):
       print('Sortkey:'+str(sortkey))
-    if args.noheaders:
+    if (args.noheaders):
       print(tabulate(sorted(table, reverse=reverse, key=sortkey), tablefmt='plain', showindex=showindex, stralign=stralign))
     else:
       print(tabulate(sorted(table, reverse=reverse, key=sortkey), tablefmt=tablefmt, headers=headers, showindex=showindex, stralign=stralign))
   else:
-    if args.noheaders:
+    if (args.noheaders):
       print(tabulate(table, tablefmt='plain', showindex=showindex, stralign=stralign))
     else:
       print(tabulate(table, tablefmt=tablefmt, headers=headers, showindex=showindex, stralign=stralign))
@@ -158,7 +158,7 @@ if (args.whosout):
   for who in whosout: # List of Dict
     if (args.debug):
       print(who)
-    if args.today and (not (who['start'] <= today and today <= who['end'])):
+    if (args.today) and (not (who['start'] <= today and today <= who['end'])):
       continue # Pass directly to the next for value
     else:
       table.append(who)
@@ -177,7 +177,7 @@ if (args.users):
     if (args.debug):
       print(key)
       print(values)
-    if args.userenable and values['status']=='disabled':
+    if (args.userenable) and values['status']=='disabled':
       continue
     else:
       table.append(values)
